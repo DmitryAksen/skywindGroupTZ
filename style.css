@@ -1,0 +1,132 @@
+
+
+.container {
+    margin-top: 400px;
+}
+.container img {
+    position: relative;
+}
+
+.UI {
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.flex {
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: -359px;
+    left: 130px;
+    z-index: 1;
+}
+
+
+.btn_plus {
+    margin-left: 204px;
+}
+
+.turbo_box {
+    margin-left: 1072px;
+}
+
+.btn_auto {
+    margin-left: 20px;
+}
+
+.btn_spin {
+    left: -192px;
+}
+
+.btn_minus {
+    margin-left: 22px;
+}
+
+.img_test {
+    background: grey;
+    background-image: url('./imgs/btn_minus/normal.png');
+}
+
+#rotate {
+    left: -483px;
+}
+#square-noraml {
+    left: -430px;
+}
+
+
+
+
+#stop {
+    left: -430px;
+}
+
+.wrapper {
+    overflow:hidden;
+    margin-top: -630px;
+    margin-left: 1895px;
+}
+
+#info {
+z-index: 300;
+margin: -900px;
+font-size: 20px;
+color: blue;
+}
+
+
+.tumbler {
+margin-left: -160px;
+margin-top: 35px;
+}
+
+#spin-disable {
+    margin-left: -781px;
+}
+
+
+
+
+
+
+/* #flex {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+} */
+
+
+.flex a,
+.flex img {
+    position: relative;
+}
+
+#myDiv {
+    display: inline-block;
+    background-image: url("./imgs/btn_spin/normal.png");
+    height: 351.99px;
+    width: 351.99px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -191px;
+}
+
+#myDiv:hover {
+    background-image: url("./imgs/btn_spin/hover.png");
+}
+
+#myDiv:active {
+    background-image: url("./imgs/btn_spin/click.png");
+}
+
+
+#bg-sq-disabled {
+    left: -541px;
+}
+
+
+/* -191px; */

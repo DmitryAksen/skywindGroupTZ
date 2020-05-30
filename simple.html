@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link>
+</head>
+
+<body>
+    <div class="container">
+        <img src='./imgs/UI1.png' class="UI">
+        <div class="flex">
+            <div class="btn_info">
+                <img src="./imgs/btn_info_states/normal.png" alt="" onmousedown="mouseDown(this);"
+                    onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);">
+            </div>
+            <div class="btn_minus">
+                <img src="./imgs/btn_minus/disable.png" id="minus_disable" />
+                <img src="./imgs/btn_minus/normal.png" id='minus_normal' alt="" onmousedown="mouseDown(this);"
+                    onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
+                    style="display: none;" onclick="minus()" />
+                <!-- <img src="./imgs/btn_minus/normal.png" alt="" onmousedown="mouseDown(this);" onmouseup="mouseUp(this)"
+                    onmouseover="hover(this);" onmouseout="unhover(this);" onclick="minus(this)" id='btn_minus'> -->
+            </div>
+            <div class="btn_plus">
+                <img src="./imgs/btn_plus_states/normal.png" id='plus_normal' alt="" onmousedown="mouseDown(this);"
+                    onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
+                    onclick='plus(this)'>
+                <img src="./imgs/btn_plus_states/disable.png" style="display: none;" id="plus_disable">
+                <!-- <img src="./imgs/btn_plus_states/normal.png" alt="" onmousedown="mouseDown(this);"
+                    onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);" onclick="add(this)"
+                    id='btn_plus'> -->
+            </div>
+            <div class="turbo_box">
+                <img src="./imgs/turbo_box/btn_of1.png" alt="" id='turbo_box'>
+            </div>
+
+            <div class="tumbler">
+                <img src="./imgs/turbo_box/tumbler/normal.png" alt="" onmousedown="mouseDown(this);"
+                    onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
+                    onclick=tumblerUp(this)>
+            </div>
+
+
+            <div class="btn_auto">
+                <img src="./imgs/btn_auto/normal.png" alt="" onmousedown="mouseDown(this);" onmouseup="mouseUp(this)"
+                    onmouseover="moveUp(this);" onmouseout="moveDown(this);">
+            </div>
+
+
+            
+            <!-- 
+            <div>
+                <img src="./imgs/btn_spin/normal.png" id='spin' alt="" class="btn_spin" onmousedown="mouseDown(this);"
+                onmouseup="mouseUpRotate(this)" onmouseover="hover(this);" onmouseout="unhover(this);">
+            </div>
+
+            <div id="inner-spin">
+                <img src="./imgs/btn_spin/child/btn_spin.png" alt="" id='rotate' onmouseover="hoverRotate()"
+                    onmouseout="hoverRotate()" onmousedown="mouseDownRotate()" onmouseup="mouseUpRotate(this)">
+                <img src="./imgs/btn_spin/stateOfStop/stop_normal.png" style="display: none;" id='square-noraml'/>
+            </div>
+           
+            <div id='spin-disable' style="display: none;">
+                <img src="./imgs/btn_spin/background_square_disabled.png"/>
+            </div>
+-->
+
+
+ 
+                <a id="myDiv" onclick="myClick()">
+                    <div>
+                        <img src="./imgs/btn_spin/child/btn_spin.png" id="arrow" />
+                    </div>
+                </a>
+                <img src="./imgs/btn_spin/background_square_disabled.png" id='bg-sq-disabled'>
+
+        </div>
+
+
+        <!-- here work -->
+        <div class="wrapper">
+            <img src='./imgs/list/bg.png' id='list' style="top: 255px" onmouseover="moveUp();"
+                onmouseout="moveDown();" />
+        </div>
+
+    </div>
+
+
+
+    <script src="./controller.js"></script>
+
+
+
+    <script>
+
+//todo
+// если во время выдвижения я навожу на лист он не прячется только если покину облатсть,
+// необходимо увеличить область действия
+// добавить список над картинкой 
+
+
+//1) кнопка стоп дизейблед на 1 сек + бэкграунд дизейблед, 2)кнопка стоп нормал 3)Вернуть вертушку обратно
+
+//here i work
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #list {
+    margin-top: 400px;
+} */
+
+.wrapper {
+    width:388px;
+    height:385px;
+    overflow:hidden;
+    position: relative;
+    border: 1px solid black;
+}
+.wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+    </style>
+</head>
+
+<body>
+    <!-- <img src="./imgs/list/bg.png" id='list' style="position:absolute;" /> -->
+    <div class="wrapper">
+        <img src='./imgs/list/bg.png' id='list' style="position: absolute; top: 385px;"/>
+    </div>
+    <button onmouseover="moveUp()" onmouseout="stop()">test</button>
+    <button onclick='stop()'>stop</button>
+</body>
+
+
+
+<script type="text/javascript">
+
+    tank = document.getElementById('list')
+    var left = 385,
+    timerId = 0;
+    function moveUp() {
+        clearInterval(timerId);
+        timerId = setInterval(function () { //This function is called by the browser every 33 milliseconds
+            left -= 1.2;
+            if (left-- < 0) {
+                clearInterval(timerId);
+            }
+            tank.style.top = left + "px";
+        }, 1);
+
+    }
+    function stop() {
+        clearInterval(timerId);
+        timerId = setInterval(function () { //This function is called by the browser every 33 milliseconds
+            left += 3;
+            if (left > 385) {
+                clearInterval(timerId);
+            }
+            tank.style.top = left + "px";
+        }, 1);
+        
+    }
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+<!-- На кнопку турбо необходимо добавить эффекты -->
+
+
+
+
+<!-- 1) Если список выдвинулся и в его области находится крсор, список не должен задвигаться,
+у меня есть пробельные места, есть идея добавить список текста и повести события на список УЛ 
+2) добавить текст в табло выдвижного списка 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
