@@ -145,7 +145,7 @@ const oneSpin = () => {
 }
 
 
-function play() {
+const play = () => {
     var audio = new Audio("./audio/Button_Click.wav");
     audio.play();
 }
