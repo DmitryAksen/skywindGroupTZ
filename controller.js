@@ -44,8 +44,8 @@ const minus = () => {
     }
 }
 
-const list = document.getElementById('list');
-const valueInPx = list.style.top;
+const sheet = document.getElementById('sheet');
+const valueInPx = sheet.style.top;
 let startingPoint = valueInPx.substring(0, valueInPx.length - 2);
 let timerId = 0;
 const moveUp = () => {
@@ -57,7 +57,7 @@ const moveUp = () => {
         } else {
             startingPoint -= 1.2;
         }
-        list.style.top = startingPoint + "px";
+        sheet.style.top = startingPoint + "px";
     }, 1);
     document.getElementById('btn-auto').setAttribute('src', './imgs/btn_auto/hover.png');
 }
@@ -70,7 +70,7 @@ const moveDown = () => {
         if (startingPoint > 380) {
             clearInterval(timerId);
         }
-        list.style.top = startingPoint + "px";
+        sheet.style.top = startingPoint + "px";
     }, 1);
     document.getElementById('btn-auto').setAttribute('src', './imgs/btn_auto/normal.png');
 }
@@ -98,7 +98,7 @@ const myClick = () => {
         clearInterval(indexInterval);
         arrow.setAttribute('src', './imgs/btn_spin/stop/btn_stop_normal.png');
         disabledSquare.style.zIndex = 0;
-        document.getElementById('myDiv').onclick = setArrow;
+        document.getElementById('btn-spin-wrapper').onclick = setArrow;
         timeIndex = setTimeout(() => {
             setTimeout(() => {
             }, 1000)
@@ -122,7 +122,7 @@ const setArrow = () => {
         const arrow = document.getElementById('arrow');
         arrow.setAttribute('src', "./imgs/btn_spin/spin/btn_spin_normal.png");
         oneSpitInFiveSeconds()
-        document.getElementById('myDiv').onclick = myClick
+        document.getElementById('btn-spin-wrapper').onclick = myClick
     }, 1000)
 }
 window.onload = function () {
