@@ -1,18 +1,14 @@
-
-
 .container {
-    margin-top: 400px;
+    margin-top: 300px;
 }
 .container img {
     position: relative;
 }
-
 .UI {
     top: 0;
     left: 0;
     z-index: 1;
 }
-
 .flex {
     position: relative;
     display: flex;
@@ -21,91 +17,59 @@
     left: 130px;
     z-index: 2;
 }
-
-
-.btn_plus {
+.btn-plus {
     margin-left: 204px;
 }
-
-.turbo_box {
+.turbo-box {
     margin-left: 1072px;
 }
-
-.btn_auto {
+.btn-auto {
     margin-left: 20px;
 }
-
-.btn_spin {
+.btn-spin {
     left: -192px;
 }
-
-.btn_minus {
+.btn-minus {
     margin-left: 22px;
 }
-
-.img_test {
+.img-test {
     background: grey;
     background-image: url('./imgs/btn_minus/normal.png');
 }
-
 #rotate {
     left: -483px;
 }
 #square-noraml {
     left: -430px;
 }
-
-
-
-
 #stop {
     left: -430px;
 }
-
 .wrapper {
     overflow:hidden;
-    margin-top: -755px;
+    margin-top: -725px;
     margin-left: 1895px;
 }
-
 #info {
 z-index: 300;
 margin: -900px;
 font-size: 20px;
 color: blue;
 }
-
-
 .tumbler {
 margin-left: -160px;
 margin-top: 35px;
 }
-
 #spin-disable {
     margin-left: -781px;
 }
-
-
-
-
-
-
-/* #flex {
-    position: relative;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-} */
-
-
 .flex a,
 .flex img {
     position: relative;
 }
-
 #myDiv {
     display: inline-block;
-    background-image: url("./imgs/btn_spin/normal.png");
+    background-image: url("./imgs/btn_spin/bg/bg_normal.png");
     height: 351.99px;
     width: 351.99px;
     z-index: 10;
@@ -115,33 +79,24 @@ margin-top: 35px;
     left: 1975px;
     position: absolute;
 }
-
 #myDiv:hover {
-    background-image: url("./imgs/btn_spin/hover.png");
+    background-image: url("./imgs/btn_spin/bg/bg_hover.png");
 }
-
 #myDiv:active {
-    background-image: url("./imgs/btn_spin/click.png");
+    background-image: url("./imgs/btn_spin/bg/bg_click.png");
 }
-
-
 #bg-sq-disabled {
     left: 1975px;
     position: absolute;
     z-index: 0;
 }
-
-
-/* -191px; */
 #list {
-    background-image: url('./imgs/list/bg.png');
+    background-image: url('./imgs/spinselect_box/bg.png');
     height: 388px;
     width: 385px;
     position: relative;
     z-index: 1;
 }
-
-
 .item {
     color: #ffd100;
     display: block;
@@ -151,11 +106,9 @@ margin-top: 35px;
     text-transform: uppercase;
     text-decoration: none;
 }
-
 .item:hover {
   color: #fff;
 }
-
 #spisok {
     padding-top: 20px;
 }
