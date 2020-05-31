@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #flex {
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+
+        #flex a,
+        #flex img {
+            position: relative;
+        }
+
+        #myDiv {
+            display: inline-block;
+            background-image: url("./imgs/btn_spin/normal.png");
+            height: 351.99px;
+            width: 351.99px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #myDiv:hover {
+            background-image: url("./imgs/btn_spin/hover.png");
+        }
+
+        #myDiv:active {
+            background-image: url("./imgs/btn_spin/click.png");
+        }
+
+
+        #bg-sq-disabled {
+            left: -351px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="flex">
+        <a id="myDiv" onclick="myClick()">
+            <div>
+                <img src="./imgs/btn_spin/child/btn_spin.png" id="arrow" />
+            </div>
+        </a>
+        <img src="./imgs/btn_spin/background_square_disabled.png" id='bg-sq-disabled'>
+        <!-- <img src="./imgs/btn_spin/background_spin_disabled.png" id="bg-arrow-disabled" /> -->
+
+    </div>
+    <script>
+        var timeIndex;
+        function myClick() {
+            console.log('click')
+            let disabledSquare = document.getElementById('bg-sq-disabled')
+            
+            disabledSquare.style.zIndex = 11;
+            let arrow = document.getElementById('arrow');
+            arrow.setAttribute('src', '');
+
+            setTimeout(() => {
+                let arrow = document.getElementById('arrow');
+                clearInterval(indexInterval);
+                arrow.setAttribute('src', './imgs/btn_spin/stateOfStop/stop_normal.png');
+                disabledSquare.style.zIndex = 0;
+                document.getElementById('myDiv').onclick = setArrow
+                timeIndex = setTimeout(() => {
+                    setTimeout(() => {
+                    }, 1000)
+                    setArrow()
+                }, 2000)
+            }, 1200)
+        }
+
+        function setArrow() {
+            let disabledSquare = document.getElementById('bg-sq-disabled')
+            disabledSquare.setAttribute('src', "./imgs/btn_spin/background_spin_disabled.png")
+            disabledSquare.style.zIndex = 11;
+           
+
+            clearTimeout(timeIndex);
+            setTimeout(() => {
+
+                disabledSquare.style.zIndex = 0;
+                disabledSquare.setAttribute('src', "./imgs/btn_spin/background_square_disabled.png")
+                let arrow = document.getElementById('arrow');
+                arrow.setAttribute('src', "./imgs/btn_spin/child/btn_spin.png");
+                oneSpitInFiveSeconds()
+                document.getElementById('myDiv').onclick = myClick
+            }, 1000)
+        }
+        window.onload = function () {
+            oneSpitInFiveSeconds()
+            let indexInterval;
+        };
+        function oneSpitInFiveSeconds() {
+            oneSpin()
+            indexInterval = setInterval(() => { oneSpin() }, 4000);
+        }
+        let degrees = 0;
+        function oneSpin() {
+            let val = setInterval(function () {
+                degrees -= 7.2;
+                document.getElementById("arrow").style.WebkitTransform = "rotate(" + degrees + "deg)";
+            }, 10);
+            setTimeout(() => {
+                clearInterval(val);
+            }, 500)
+        }
+
+
+        //add arrow disabled with disabled bg for 1 sec
+    </script>
+
+
+</body>
+
+</html>

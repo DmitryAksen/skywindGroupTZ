@@ -17,9 +17,9 @@
     position: relative;
     display: flex;
     align-items: center;
-    top: -359px;
+    top: -245px;
     left: 130px;
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -64,7 +64,7 @@
 
 .wrapper {
     overflow:hidden;
-    margin-top: -630px;
+    margin-top: -755px;
     margin-left: 1895px;
 }
 
@@ -112,7 +112,8 @@ margin-top: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: -191px;
+    left: 1975px;
+    position: absolute;
 }
 
 #myDiv:hover {
@@ -125,8 +126,36 @@ margin-top: 35px;
 
 
 #bg-sq-disabled {
-    left: -541px;
+    left: 1975px;
+    position: absolute;
+    z-index: 0;
 }
 
 
 /* -191px; */
+#list {
+    background-image: url('./imgs/list/bg.png');
+    height: 388px;
+    width: 385px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.item {
+    color: #ffd100;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.item:hover {
+  color: #fff;
+}
+
+#spisok {
+    padding-top: 20px;
+}

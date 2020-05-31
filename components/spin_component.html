@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .flex img {
+            position: relative;
+        }
+
+        #spin-normal {
+            left: -293px;
+        }
+
+        #square {
+            left: -475px;
+        }
+
+        #disabled-square {
+            left: -716px;
+            z-index: 9;
+        }
+
+        #disabled-spin {
+            z-index: 7;
+            left: -1067px;
+        }
+        #test {
+            background-image: url("./imgs/btn_spin/normal.png");
+            height: 351.99px;
+            width: 351.99px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <img src="./imgs/btn_spin/normal.png" id="spin" onmousedown="mouseDown(this);" onmouseup="callMouseUp(this)"
+            onmouseover="hover(this);" onmouseout="unhover(this);" style="z-index: 10;" />
+        <img src="./imgs/btn_spin/child/btn_spin.png" id='spin-normal' onmousedown="callMouseDown();"
+            onmouseup="callMouseUp(this)" onmouseover="callHover();" onmouseout="callUnhover();" style="z-index: 11;" />
+        <!-- <img src='./imgs/btn_spin/child/disabled.png' /> -->
+        <img src="./imgs/btn_spin/stateOfStop/stop_normal.png" id="square" style="z-index: 9;" />
+        <!-- <img src='./imgs/btn_spin/stateOfStop/stop_normal.png' /> -->
+        <img src='./imgs/btn_spin/background_square_disabled.png' id='disabled-square' style="z-index: 9;" />
+        <!-- <img src="./imgs/btn_spin/stateOfStop/stop_disabled.png" onclick="first(this)" id='img'/> -->
+        <img src='./imgs/btn_spin/background_spin_disabled.png' id='disabled-spin' style="z-index: 7;" />
+    </div>
+    <div>
+        <a id="test" href='#'>test with tag a</a>
+    </div>
+
+
+    <script>
+
+        function callMouseDown() {
+            mouseDown(document.getElementById('spin'));
+        }
+
+        //change functions with dom
+        function callMouseUp(img) {
+            document.getElementById('disabled-square').style['z-index'] = 11;
+            setTimeout(() => {
+                document.getElementById('disabled-square').style['z-index'] = 9;
+                document.getElementById('spin').onmouseup = returnArrow;
+                document.getElementById('spin').setAttribute('src', './imgs/btn_spin/hover.png');
+                document.getElementById('spin-normal').style['z-index'] = 9;
+                // document.getElementById('spin-normal').setAttribute('src', './imgs/btn_spin/child/disabled.png');
+                let square = document.getElementById('square');
+                square.style['z-index'] = 11;
+
+            }, 1500)
+
+        }
+
+        function returnArrow() {
+            //you shold set image without
+            document.getElementById('square').style['z-index'] = 9;
+            document.getElementById('disabled-spin').style['z-index'] = 13;
+            setTimeout(()=>{
+            document.getElementById('spin').setAttribute('src', './imgs/btn_spin/hover.png');
+            document.getElementById('spin-normal').style['z-index'] = 11;
+            document.getElementById('disabled-spin').style['z-index'] = 7;
+            }, 1200)
+            
+           
+
+
+            // document.getElementById('square').style['z-index'] = 9;
+            // document.getElementById('spin-normal').style['z-index'] = 12;
+
+        }
+        function callHover() {
+            hover(document.getElementById('spin'));
+        }
+        function callUnhover() {
+            unhover(document.getElementById('spin'));
+        }
+
+        function mouseDown(img) {
+            img.setAttribute('src', './imgs/btn_spin/click.png')
+        }
+        function hover(img) {
+            img.setAttribute('src', './imgs/btn_spin/hover.png')
+        }
+        function unhover(img) {
+            img.setAttribute('src', './imgs/btn_spin/normal.png')
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // function first(el) {
+ 
+        //     document.getElementById('img').setAttribute('src', "./imgs/btn_spin/child/btn_spin.png")
+        //     document.getElementById('img').onclick = second;
+        // }
+        // function second(el) {
+  
+        //     document.getElementById('img').setAttribute('src', "./imgs/btn_spin/stateOfStop/stop_disabled.png")
+        //     document.getElementById('img').onclick = first;
+        // }
+
+//идея такая прежде чем писать я напишу псевдо код!
+//1) Эменет спин будет отдельным, у него состояние ховер, клик и нормал(как добавить дизейблед? Добавить отдельную картинку состояния спи дизейблед у которой нет функций)
+//2) После того как исчет первый дизейблед с квадратом если мы оставим прежний спин
+//  на нем буду висеть функции клик нормал ховер что нам и нужно но на клик уже еобходимо вызывать другую функцию
+// можно изменять функции в дом дереве
+    </script>
+</body>
+
+</html>

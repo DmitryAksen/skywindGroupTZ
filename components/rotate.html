@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        window.onload = function () {
+            oneSpitInFiveSeconds()
+        };
+
+
+        function oneSpitInFiveSeconds() {
+            oneSpin()
+            let index = setInterval(() => { oneSpin() }, 4000);
+        }
+
+        let degrees = 0;
+        function oneSpin() {
+            let val = setInterval(function () {
+                degrees -= 7.2;
+                document.getElementById("img1").style.WebkitTransform = "rotate(" + degrees + "deg)";
+            }, 10);
+            setTimeout(() => {
+                clearInterval(val);
+            }, 500)
+        }
+
+    </script>
+</head>
+
+<body>
+    <img id="img1" src="./imgs/btn_spin/child/normal.png">
+</body>
+
+</html>
+
