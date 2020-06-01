@@ -93,11 +93,16 @@ window.onload = function () {
     oneSpitInFiveSeconds();
     let indexInterval;
 };
+document.addEventListener("visibilitychange", function() {
+    document.hidden? clearInterval(indexInterval) : oneSpitInFiveSeconds();
+    degrees = 0
+});
+let degrees = 0;
 const oneSpitInFiveSeconds = () => {
     oneSpin();
     indexInterval = setInterval(() => { oneSpin() }, 4000);
 }
-let degrees = 0;
+
 const rotate = (degrees) => {
     return "rotate(" + degrees + "deg)";
 }
