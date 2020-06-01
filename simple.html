@@ -22,12 +22,12 @@
                 <img src="./imgs/btn_minus/disable.png" id="minus-disable" />
                 <img src="./imgs/btn_minus/normal.png" id='minus-normal' onmousedown="mouseDown(this);"
                     onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
-                    style="display: none;" onclick="minus()" />
+                    style="display: none;" onclick="plusOrMinus(false)" />
             </div>
             <div id="btn-plus-wrapper">
                 <img src="./imgs/btn_plus/normal.png" id="plus-normal" onmousedown="mouseDown(this);"
                     onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
-                    onclick='plus(this)'>
+                    onclick='plusOrMinus(true)'>
 
                 <img src="./imgs/btn_plus/disable.png" style="display: none;" id="plus-disable">
             </div>
@@ -37,11 +37,11 @@
             <div id="tumbler-wrapper">
                 <img src="./imgs/turbo_box/tumbler/normal.png" onmousedown="mouseDown(this);"
                     onmouseup="mouseUp(this)" onmouseover="hover(this);" onmouseout="unhover(this);"
-                    onclick=tumblerUp(this)>
+                    onclick='tumblerUp(this)'>
             </div>
             <div id="btn-auto-wrapper">
                 <img src="./imgs/btn_auto/normal.png" onmousedown="mouseDown(this);" onmouseup="mouseUp(this)"
-                    onmouseover="moveUp();" onmouseout="moveDown();" id='btn-auto'>
+                    onmouseover="moveUpAndDown(true);" onmouseout="moveUpAndDown(false);" id='btn-auto'>
             </div>
             <a id="btn-spin-wrapper" onclick="myClick()" onmouseup="play()">
                 <div>
@@ -51,7 +51,7 @@
             <img src="./imgs/btn_spin/bg_square_disable.png" id='bg-sq-disabled'>
         </div>
         <div id="sheet-limit">
-            <div id="sheet" style="top: 380px;" onmouseover="moveUp();" onmouseout="moveDown();">
+            <div id="sheet" style="top: 380px;" onmouseover="moveUpAndDown(true);" onmouseout="moveUpAndDown(false);">
                 <ul id="list">
                     <li class="item" onclick="play()">until feature</li>
                     <li class="item" onclick="play()">spin 25</li>

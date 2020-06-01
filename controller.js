@@ -1,13 +1,10 @@
-let status = false;
-
 let counter = 0;
-
 const cutUrl = (element) => {
-    let valueStc = element.getAttribute('src');
-    let arr = valueStc.split('/');
+    let arr = element.getAttribute('src').split('/');
     arr.pop();
     return arr.join('/');
 }
+
 const hover = (element) => {
     element.setAttribute('src', cutUrl(element) + '/hover.png');
 }
@@ -18,133 +15,113 @@ const mouseDown = (element) => {
     element.setAttribute('src', cutUrl(element) + '/click.png');
 }
 const mouseUp = (element) => {
-    play()
+    play();
     element.setAttribute('src', cutUrl(element) + '/hover.png');
 }
 
 
-const plus = (elem) => {
-    counter++
-    document.getElementById('minus-normal').style.display = '';
-    document.getElementById('minus-disable').style.display = 'none'
-
-    if (counter === 5) {
-        document.getElementById('plus-normal').style.display = 'none';
-        document.getElementById('plus-disable').style.display = '';
+const plusOrMinus = (status) => {
+    counter += status ? 1 : -1;
+    if (counter === (status ? 1 : 0)) {
+        document.getElementById('minus-normal').style.display = status ? '' : 'none';
+        document.getElementById('minus-disable').style.display = status ? 'none' : '';
     }
-}
-const minus = () => {
-    counter--
-    if (counter === 0) {
-        document.getElementById('minus-normal').style.display = 'none';
-        document.getElementById('minus-disable').style.display = ''
-    } else {
-        document.getElementById('plus-normal').style.display = '';
-        document.getElementById('plus-disable').style.display = 'none';
+    if (counter === (status ? 5 : 4)) {
+        document.getElementById('plus-normal').style.display = status ? 'none' : '';
+        document.getElementById('plus-disable').style.display = status ? '' : 'none';
     }
 }
 
 const sheet = document.getElementById('sheet');
-const valueInPx = sheet.style.top;
-let startingPoint = valueInPx.substring(0, valueInPx.length - 2);
+const pxStr = sheet.style.top;
+let px = Number(pxStr.substring(0, pxStr.length - 2));
 let timerId = 0;
-const moveUp = () => {
+const moveUpAndDown = (status) => {
     clearInterval(timerId);
     timerId = setInterval(function () {
-        
-        if (startingPoint < 65) {
+        if (status ? px < 65 : px > 380) {
             clearInterval(timerId);
+            return;
         } else {
-            startingPoint -= 1.2;
+            let value = status ? -1.2 : 2;
+            px += value;
+            sheet.style.top = px + "px";
         }
-        sheet.style.top = startingPoint + "px";
     }, 1);
-    document.getElementById('btn-auto').setAttribute('src', './imgs/btn_auto/hover.png');
-}
-
-const moveDown = () => {
-    clearInterval(timerId);
-    timerId = setInterval(function () {
-
-        startingPoint += 2;
-        if (startingPoint > 380) {
-            clearInterval(timerId);
-        }
-        sheet.style.top = startingPoint + "px";
-    }, 1);
-    document.getElementById('btn-auto').setAttribute('src', './imgs/btn_auto/normal.png');
+    document.getElementById('btn-auto').setAttribute('src', './imgs/btn_auto/' + (status ? 'hover.png' : 'normal.png'));
 }
 
 let statusTumbler = true;
+const turbo_box = document.getElementById('turbo-box');
 const tumblerUp = (el) => {
-
     el.style.top = statusTumbler ? '-30px' : '0px';
-    const turbo_box = document.getElementById('turbo-box');
-    turbo_box.setAttribute('src', statusTumbler ? './imgs/turbo_box/box_bg_on.png' : './imgs/turbo_box/box_bg_of.png');
+    turbo_box.setAttribute('src', './imgs/turbo_box/' + (statusTumbler ? 'box_bg_on.png' : 'box_bg_of.png'));
     statusTumbler = !statusTumbler;
 }
 
-
 let timeIndex;
+const arrow = document.getElementById('arrow');
+const disabledSquare = document.getElementById('bg-sq-disabled');
+const btnSpinWrapper = document.getElementById('btn-spin-wrapper');
 const myClick = () => {
-    const disabledSquare = document.getElementById('bg-sq-disabled')
-    
     disabledSquare.style.zIndex = 11;
-    const arrow = document.getElementById('arrow');
     arrow.setAttribute('src', '');
-
     setTimeout(() => {
-        const arrow = document.getElementById('arrow');
-        clearInterval(indexInterval);
         arrow.setAttribute('src', './imgs/btn_spin/stop/btn_stop_normal.png');
+        clearInterval(indexInterval);
         disabledSquare.style.zIndex = 0;
-        document.getElementById('btn-spin-wrapper').onclick = setArrow;
+        btnSpinWrapper.onclick = setArrow;
         timeIndex = setTimeout(() => {
-            setTimeout(() => {
-            }, 1000)
-            setArrow()
+            setArrow();
         }, 2000)
     }, 1200)
 }
-
 const setArrow = () => {
-
-    const disabledSquare = document.getElementById('bg-sq-disabled')
-    disabledSquare.setAttribute('src', "./imgs/btn_spin/bg_spin_disable.png")
+    disabledSquare.setAttribute('src', "./imgs/btn_spin/bg_spin_disable.png");
     disabledSquare.style.zIndex = 11;
-   
-
     clearTimeout(timeIndex);
     setTimeout(() => {
-
         disabledSquare.style.zIndex = 0;
-        disabledSquare.setAttribute('src', "./imgs/btn_spin/bg_square_disable.png")
-        const arrow = document.getElementById('arrow');
+        disabledSquare.setAttribute('src', "./imgs/btn_spin/bg_square_disable.png");
         arrow.setAttribute('src', "./imgs/btn_spin/spin/btn_spin_normal.png");
-        oneSpitInFiveSeconds()
-        document.getElementById('btn-spin-wrapper').onclick = myClick
+        oneSpitInFiveSeconds();
+        btnSpinWrapper.onclick = myClick;
     }, 1000)
 }
+
 window.onload = function () {
-    oneSpitInFiveSeconds()
+    oneSpitInFiveSeconds();
     let indexInterval;
 };
 const oneSpitInFiveSeconds = () => {
-    oneSpin()
+    oneSpin();
     indexInterval = setInterval(() => { oneSpin() }, 4000);
 }
 let degrees = 0;
+const rotate = (degrees) => {
+    return "rotate(" + degrees + "deg)";
+}
+const userAgent = navigator.userAgent;
 const oneSpin = () => {
     const val = setInterval(function () {
         degrees -= 7.2;
-        document.getElementById("arrow").style.WebkitTransform = "rotate(" + degrees + "deg)";
-    }, 10);
+        switch (userAgent) {
+            case userAgent.match("Chrome"):
+                arrow.style.WebkitTransform = rotate(degrees);
+            case userAgent.match("Firefox"):
+                arrow.style.MozTransform = rotate(degrees);
+            case userAgent.match("MSIE"):
+                arrow.style.msTransform = rotate(degrees);
+            case userAgent.match("Opera"):
+                arrow.style.OTransform = rotate(degrees);
+            default:
+                arrow.style.transform = rotate(degrees);
+        }
+    }, 10)
     setTimeout(() => {
         clearInterval(val);
     }, 500)
 }
-
-
 const play = () => {
     var audio = new Audio("./audio/Button_Click.wav");
     audio.play();
