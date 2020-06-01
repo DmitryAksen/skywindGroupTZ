@@ -88,23 +88,21 @@ const setArrow = () => {
         btnSpinWrapper.onclick = myClick;
     }, 1000)
 }
-
+let indexInterval;
+let val;
 window.onload = function () {
     oneSpitInFiveSeconds();
-    let indexInterval;
-    let val;
 };
 document.addEventListener("visibilitychange", function() {
-    clearInterval(indexInterval)
-    clearInterval(val)
-    degrees = 0
+    clearInterval(indexInterval);
+    clearInterval(val);
+    degrees = 0;
   if(!document.hidden) {
     oneSpitInFiveSeconds();
   }
 });
 let degrees = 0;
 const oneSpitInFiveSeconds = () => {
-    oneSpin();
     indexInterval = setInterval(() => { oneSpin() }, 4000);
 }
 
