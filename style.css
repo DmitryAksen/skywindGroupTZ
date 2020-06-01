@@ -82,5 +82,9 @@
     text-decoration: none;
 }
 #container #sheet-limit #sheet #list .item:hover {
-  color: #fff;
+color: #fff;
+}
+
+#container #sheet-limit #sheet #list .item:active {
+color: #f48a00;
 }
