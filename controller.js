@@ -92,10 +92,15 @@ const setArrow = () => {
 window.onload = function () {
     oneSpitInFiveSeconds();
     let indexInterval;
+    let val;
 };
 document.addEventListener("visibilitychange", function() {
-    document.hidden? clearInterval(indexInterval) : oneSpitInFiveSeconds();
+    clearInterval(indexInterval)
+    clearInterval(val)
     degrees = 0
+  if(!document.hidden) {
+    oneSpitInFiveSeconds();
+  }
 });
 let degrees = 0;
 const oneSpitInFiveSeconds = () => {
@@ -108,7 +113,7 @@ const rotate = (degrees) => {
 }
 const userAgent = navigator.userAgent;
 const oneSpin = () => {
-    const val = setInterval(function () {
+        val = setInterval(function () {
         degrees -= 7.2;
         switch (userAgent) {
             case userAgent.match("Chrome"):
